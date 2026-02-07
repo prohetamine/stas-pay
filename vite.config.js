@@ -17,9 +17,5 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ['ws'],
-  },
-  define: {
-    'process.env.NODE_ENV': JSON.stringify(process.env._NODE_ENV),
-    'process.env.PROMISE_QUEUE_COVERAGE': JSON.stringify(false)
   }
 })

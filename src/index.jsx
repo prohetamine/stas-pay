@@ -10,7 +10,7 @@ const defaultData = {
   chainId: null
 }
 
-const Provider = ({ children }) => {
+const StasPayProvider = ({ children }) => {
   const resolverRef = useRef(null)
   const [data, setData] = useState(defaultData)
 
@@ -35,7 +35,7 @@ const Provider = ({ children }) => {
   )
 }
 
-const usePay = () => {
+const useStasPay = () => {
   const ctx = useContext(PayConfirmContext)
   if (!ctx) {
     throw new Error('usePay must be used inside Provider')
@@ -44,6 +44,6 @@ const usePay = () => {
 }
 
 export {
-  Provider,
-  usePay
+  StasPayProvider,
+  useStasPay
 }
