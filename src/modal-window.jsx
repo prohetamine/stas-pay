@@ -35,7 +35,7 @@ const formatThousands = number => {
   return rounded % 1 === 0 ? `~${rounded.toFixed(0)}k` : `~${rounded}k`
 }
 
-const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, close }) => {
+const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 }, close }) => {
     const [lang, setLang] = useLocalStorage('language', navigator.language === 'ru-RU' ? 'ru' : 'en')
         , { balance, chain, token } = useBalance({ chainId, address })
         , [isConfirm, setConfirm] = useState(false)
@@ -50,7 +50,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
         , circleSize = 50
         , maxX = sliderWidth - circleSize
     
-    const isPayble = balance === null || balance >= count
+    const isPayble = balance === null || balance >= commission
 
     const handleDragEnd = () => {
         const progress = x.get() / maxX
@@ -74,14 +74,14 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
     }
 
     useEffect(() => {
-        if (count || chainId || address) {
+        if (commission || chainId || address) {
             const timeId = setTimeout(() => {
                 setInitial(false)             
             }, 100)
 
             return () => clearTimeout(timeId)
         }
-    }, [count, chainId, address])
+    }, [commission, chainId, address])
 
     useEffect(() => {
         if (isConfirm) {
@@ -126,7 +126,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
       rgba(240, 213, 51, ${opacitySlider})
     `
 
-    const isOpen = count && chainId && address
+    const isOpen = commission && chainId && address
     
     return (
         <AnimatePresence>
@@ -170,7 +170,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
                             <StarsOverflow width={170} height={104} starCount={50} maxOffset={80} margin={10} color={'#000000'}>
                                 <MessageOverflow>
                                     <OverflowPayData>
-                                        <Count>{formatThousands(count)}</Count>
+                                        <Count>{formatThousands(commission)}</Count>
                                         <Icon />
                                     </OverflowPayData>
                                     <DescriptionOverflow>
@@ -190,7 +190,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
                                                 isPayble 
                                                     ? (
                                                         <>
-                                                            Вы оплатите <B>{formatThousands(count)} STAS</B> за это действие.
+                                                            Вы оплатите <B>{formatThousands(commission)} STAS</B> за это действие.
                                                         </>
                                                     )
                                                     : (
@@ -216,7 +216,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
                                                 isPayble 
                                                     ? (
                                                         <>
-                                                            You will pay <B>{formatThousands(count)} STAS</B> for this action.
+                                                            You will pay <B>{formatThousands(commission)} STAS</B> for this action.
                                                         </>
                                                     )
                                                     : (

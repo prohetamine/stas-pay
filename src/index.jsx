@@ -5,7 +5,7 @@ import ModalWindow from './modal-window.jsx'
 const PayConfirmContext = createContext(null)
 
 const defaultData = {
-  count: 0,
+  commission: 0,
   address: null,
   chainId: null
 }
