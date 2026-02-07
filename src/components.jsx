@@ -251,7 +251,6 @@ const SliderConfirmText = styled(motion.div)`
 
 const B = styled.span`
     font-weight: 700;
-    padding: 0px 4px;
 `
 
 const CircleArrowIcon = ({ style }) => (
