@@ -1,0 +1,80 @@
+/* eslint-disable no-undef */
+import { Contract, JsonRpcProvider, Wallet } from 'ethers'
+import { useCallback, useEffect, useState } from 'react'
+import { bsc, polygon } from '@reown/appkit/networks'
+import testNetwork from './test-network.js'
+
+const blockChainsData = [
+  ...testNetwork,
+  {
+    network: bsc,
+    token: '0xD566886eB93500e2BA464bd48c8D5A2556569253',
+    publicRpc: 'https://bsc-rpc.publicnode.com'
+  },
+  {
+    network: polygon,
+    token: '0xD566886eB93500e2BA464bd48c8D5A2556569253',
+    publicRpc: 'https://polygon-bor-rpc.publicnode.com'
+  }
+]
+  .filter(({ network }) => (network.id === 14188 || network.id === 31337) ? process.env.NODE_ENV === 'development' : true)
+  .filter(({ token }) => token)
+
+const tokenABI = [{'inputs':[{'internalType':'string','name':'_name','type':'string'},{'internalType':'string','name':'_symbol','type':'string'},{'internalType':'uint256','name':'_initialSupply','type':'uint256'}],'stateMutability':'nonpayable','type':'constructor'},{'inputs':[{'internalType':'address','name':'spender','type':'address'},{'internalType':'uint256','name':'allowance','type':'uint256'},{'internalType':'uint256','name':'needed','type':'uint256'}],'name':'ERC20InsufficientAllowance','type':'error'},{'inputs':[{'internalType':'address','name':'sender','type':'address'},{'internalType':'uint256','name':'balance','type':'uint256'},{'internalType':'uint256','name':'needed','type':'uint256'}],'name':'ERC20InsufficientBalance','type':'error'},{'inputs':[{'internalType':'address','name':'approver','type':'address'}],'name':'ERC20InvalidApprover','type':'error'},{'inputs':[{'internalType':'address','name':'receiver','type':'address'}],'name':'ERC20InvalidReceiver','type':'error'},{'inputs':[{'internalType':'address','name':'sender','type':'address'}],'name':'ERC20InvalidSender','type':'error'},{'inputs':[{'internalType':'address','name':'spender','type':'address'}],'name':'ERC20InvalidSpender','type':'error'},{'inputs':[{'internalType':'address','name':'owner','type':'address'}],'name':'OwnableInvalidOwner','type':'error'},{'inputs':[{'internalType':'address','name':'account','type':'address'}],'name':'OwnableUnauthorizedAccount','type':'error'},{'anonymous':false,'inputs':[{'indexed':true,'internalType':'address','name':'owner','type':'address'},{'indexed':true,'internalType':'address','name':'spender','type':'address'},{'indexed':false,'internalType':'uint256','name':'value','type':'uint256'}],'name':'Approval','type':'event'},{'anonymous':false,'inputs':[{'indexed':true,'internalType':'address','name':'previousOwner','type':'address'},{'indexed':true,'internalType':'address','name':'newOwner','type':'address'}],'name':'OwnershipTransferred','type':'event'},{'anonymous':false,'inputs':[{'indexed':true,'internalType':'address','name':'from','type':'address'},{'indexed':true,'internalType':'address','name':'to','type':'address'},{'indexed':false,'internalType':'uint256','name':'value','type':'uint256'}],'name':'Transfer','type':'event'},{'inputs':[],'name':'_owner','outputs':[{'internalType':'address','name':'','type':'address'}],'stateMutability':'view','type':'function'},{'inputs':[{'internalType':'address','name':'owner','type':'address'},{'internalType':'address','name':'spender','type':'address'}],'name':'allowance','outputs':[{'internalType':'uint256','name':'','type':'uint256'}],'stateMutability':'view','type':'function'},{'inputs':[{'internalType':'address','name':'spender','type':'address'},{'internalType':'uint256','name':'value','type':'uint256'}],'name':'approve','outputs':[{'internalType':'bool','name':'','type':'bool'}],'stateMutability':'nonpayable','type':'function'},{'inputs':[{'internalType':'address','name':'account','type':'address'}],'name':'balanceOf','outputs':[{'internalType':'uint256','name':'','type':'uint256'}],'stateMutability':'view','type':'function'},{'inputs':[],'name':'decimals','outputs':[{'internalType':'uint8','name':'','type':'uint8'}],'stateMutability':'pure','type':'function'},{'inputs':[],'name':'name','outputs':[{'internalType':'string','name':'','type':'string'}],'stateMutability':'view','type':'function'},{'inputs':[],'name':'owner','outputs':[{'internalType':'address','name':'','type':'address'}],'stateMutability':'view','type':'function'},{'inputs':[],'name':'renounceOwnership','outputs':[],'stateMutability':'nonpayable','type':'function'},{'inputs':[],'name':'symbol','outputs':[{'internalType':'string','name':'','type':'string'}],'stateMutability':'view','type':'function'},{'inputs':[],'name':'totalSupply','outputs':[{'internalType':'uint256','name':'','type':'uint256'}],'stateMutability':'view','type':'function'},{'inputs':[{'internalType':'address','name':'to','type':'address'},{'internalType':'uint256','name':'value','type':'uint256'}],'name':'transfer','outputs':[{'internalType':'bool','name':'','type':'bool'}],'stateMutability':'nonpayable','type':'function'},{'inputs':[{'internalType':'address','name':'from','type':'address'},{'internalType':'address','name':'to','type':'address'},{'internalType':'uint256','name':'value','type':'uint256'}],'name':'transferFrom','outputs':[{'internalType':'bool','name':'','type':'bool'}],'stateMutability':'nonpayable','type':'function'},{'inputs':[{'internalType':'address','name':'newOwner','type':'address'}],'name':'transferOwnership','outputs':[],'stateMutability':'nonpayable','type':'function'}]
+
+const networksAlias = {
+  1: 'ethereum',
+  10: 'optimism',
+  56: 'bsc',
+  130: 'unichain',
+  137: 'polygon',
+  143: 'monad',
+  196: 'xlayer',
+  324: 'zksync',
+  480: 'worldchain',
+  1868: 'soneium',
+  8453: 'base',
+  42161: 'arbitrum',
+  43114: 'avalanche',
+  42220: 'celo',
+  81457: 'blast',
+  7777777: 'zora'
+}
+
+const useBalance = ({ chainId, address }) => {
+    const [balance, setBalance] = useState(null)
+    const { publicRpc, token } = blockChainsData.find(({ network }) => network.id === chainId) || {}
+
+    const getBalance = useCallback(async () => {
+        if (address && publicRpc && token) {
+            const _wallet = Wallet.createRandom()
+
+            const provider = new JsonRpcProvider(publicRpc)
+            const wallet = new Wallet(_wallet.privateKey, provider)
+            
+            const _token = new Contract(token, tokenABI, wallet)
+                , balance = await _token.balanceOf(address)
+            
+            return balance
+        }
+
+        return null
+    }, [address, publicRpc, token])
+
+    useEffect(() => {
+        const timeId = setTimeout(async () => {
+            const balance = await getBalance()
+            setBalance(balance)
+        }, 100)
+
+        return () => clearTimeout(timeId)
+    }, [getBalance])
+
+    return { 
+        balance,
+        token,
+        chain: networksAlias[chainId]
+    }
+}
+
+export default useBalance

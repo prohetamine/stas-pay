@@ -1,0 +1,38 @@
+{
+  "name": "stas-pay",
+  "description": "The module for the internal STAS cryptocurrency",
+  "author": "Stas Prohetamine",
+  "license": "ISC",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "_NODE_ENV=production vite build",
+    "dev": "_NODE_ENV=development vite build --watch"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.3",
+    "framer-motion": "^12.33.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-use-localstorage": "^3.5.3",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "rollup-plugin-css-only": "^4.5.5",
+    "vite": "^7.3.1"
+  }
+}
