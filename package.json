@@ -3,7 +3,7 @@
   "description": "The module for the internal STAS cryptocurrency",
   "author": "Stas Prohetamine",
   "license": "ISC",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",

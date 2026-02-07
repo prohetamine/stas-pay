@@ -104,7 +104,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
 
     const opacityConfirmText = useTransform(
         x,
-        [0, 10],
+        [0, 30],
         [1, 0]
     )
 

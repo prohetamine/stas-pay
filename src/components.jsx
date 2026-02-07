@@ -219,6 +219,8 @@ const SliderConfirmOverflow = styled(motion.div)`
     align-items: center;
     justify-content: center;
     margin-left: 46px;
+    transform: translateZ(0);
+    will-change: opacity;
 `
 
 const SliderConfirmText = styled(motion.div)`
