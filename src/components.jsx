@@ -65,7 +65,8 @@ const Close = (() => {
         position: absolute;
         right: 6px;
         top: 6px;
-        cursor: poInter;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     `
 
     return props => (
@@ -157,6 +158,9 @@ const Link = styled(motion.div)`
     color: #000;
     background: #f0d533;
     text-decoration: ${props => props.active};
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    outline: none; 
 
     &:hover {
         text-decoration: underline;
@@ -176,7 +180,6 @@ const BottomOverflow = styled.div`
     justify-content: center;
     position: absolute;
     bottom: 6px;
-    cursor: poInter;
     gap: 10px;
 `
 

@@ -87,9 +87,11 @@ const ModalWindow = ({ data: { chainId = null, address = null, count = 0 }, clos
         if (isConfirm) {
             const timeId = setTimeout(() => {
                 close(isPayble)
-                x.set(0)     
                 setConfirm(false)
-                setInitial(true)               
+                setInitial(true)
+                setTimeout(() => {
+                    x.set(0)
+                }, 500)              
             }, 1000)
 
             return () => clearTimeout(timeId)
