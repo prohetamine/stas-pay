@@ -16,7 +16,7 @@ const StasPayProvider = ({ children }) => {
 
   const payConfirm = useCallback((data) => {
     return new Promise((resolve) => {
-      if (data.commission === 0) {
+      if (data.commission < 1) {
         return resolve(true)
       }
       resolverRef.current = resolve
