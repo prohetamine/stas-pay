@@ -134,17 +134,17 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
             <ShadowBody
                 initial={{
                     backdropFilter: 'blur(0px)',
-                    background: 'rgba(29, 29, 29, 0)',
+                    background: 'rgba(22, 22, 22, 0)',
                     opacity: 0
                 }}
                 animate={{ 
                     backdropFilter: 'blur(30px)',
-                    background: 'rgba(29, 29, 29, 0.85)',
+                    background: 'rgba(22, 22, 22, 0.90)',
                     opacity: 1
                 }}
                 exit={{ 
                     backdropFilter: 'blur(0px)',
-                    background: 'rgba(29, 29, 29, 0)',
+                    background: 'rgba(22, 22, 22, 0)',
                     opacity: 0
                 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
