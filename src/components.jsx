@@ -250,6 +250,7 @@ const SliderConfirmText = styled(motion.div)`
 `
 
 const B = styled.span`
+    color: #000;
     font-weight: 700;
 `
 
