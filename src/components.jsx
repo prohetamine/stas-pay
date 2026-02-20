@@ -4,69 +4,69 @@ import stas from './assets/stas.svg'
 import './fonts.css'
 
 const ShadowBody = styled(motion.div)`
-    position: fixed;
-    inset: 0;
-    z-index: 9999999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(22, 22, 22, 0.90);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    user-select: none;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(22, 22, 22, 0.90) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    user-select: none !important;
 `
 
 const Body = styled(motion.div)`
-    border-radius: 20px;
-    width: 250px;
+    border-radius: 20px !important;
+    width: 250px !important;
     height: 320px;
-    background: #000;
-    overflow: hidden;
+    background: #000 !important;
+    overflow: hidden !important;
 `
 
 const Content = styled.div`
-    position: relative;
-    border-radius: 20px;
-    width: 250px;
-    height: 250px;
-    background: #f0d533;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative !important;
+    border-radius: 20px !important;
+    width: 250px !important;
+    height: 250px !important;
+    background: #f0d533 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 `
 
 const MessageOverflow = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    gap: 10px !important;
 `
 
 const OverflowPayData = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
 `
 
 const Count = styled.div`
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 51px;
-    text-align: right;
-    color: #000;
-    height: 38px;
-    line-height: 40px;
+    font-family: 'Inter' !important;
+    font-weight: 700 !important;
+    font-size: 51px !important;
+    text-align: right !important;
+    color: #000 !important;
+    height: 38px !important;
+    line-height: 40px !important;
 `
 
 const Close = (() => {
     const SVG = styled(motion.svg)`
-        position: absolute;
-        right: 6px;
-        top: 6px;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
+        position: absolute !important;
+        right: 6px !important;
+        top: 6px !important;
+        cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent !important;
     `
 
     return props => (
@@ -85,21 +85,20 @@ const Close = (() => {
     )
 })()
 
-
 const Icon = (() => {
     const Body = styled.div`
-        position: relative;
-        width: 46px;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: relative !important;
+        width: 46px !important;
+        height: 46px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
 
         .spin {
-            animation-name: spin;
-            animation-duration: 30s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
+            animation-name: spin !important;
+            animation-duration: 30s !important;
+            animation-iteration-count: infinite !important;
+            animation-timing-function: linear !important;
         }
                     
         @keyframes spin {
@@ -110,19 +109,19 @@ const Icon = (() => {
     `
 
     const Symbol = styled.div`
-        position: absolute;
-        color: #000000;
-        font-family: "Inter";
-        font-weight: 600;
-        font-size: 23px;
-        display: flex;
+        position: absolute !important;
+        color: #000000 !important;
+        font-family: "Inter" !important;
+        font-weight: 600 !important;
+        font-size: 23px !important;
+        display: flex !important;
     `
 
     const Icon = styled.div`
-        background-image: url("${stas}");
-        background-size: cover;
-        width: 46px;
-        height: 46px;
+        background-image: url("${stas}") !important;
+        background-size: cover !important;
+        width: 46px !important;
+        height: 46px !important;
     `
 
     return () => (
@@ -134,110 +133,107 @@ const Icon = (() => {
 })()
 
 const DescriptionOverflow = styled.div`
-    position: relative;
-    width: 170px;
-    height: 40px;
-    overflow: hidden;
-    
+    position: relative !important;
+    width: 170px !important;
+    height: 40px !important;
+    overflow: hidden !important;
 `
 
 const Description = styled(motion.div)`
-    position: absolute;
-    font-family: 'Inter';
-    font-weight: 600;
-    font-size: 15px;
-    text-align: center;
-    color: #000;
+    position: absolute !important;
+    font-family: 'Inter' !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-align: center !important;
+    color: #000 !important;
 `
 
 const Link = styled(motion.div)`
-    font-family: "Inter";
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 145%;
-    color: #000;
-    background: #f0d533;
-    text-decoration: ${props => props.active};
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    outline: none; 
+    font-family: "Inter" !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    line-height: 145% !important;
+    color: #000 !important;
+    background: #f0d533 !important;
+    text-decoration: ${props => props.active} !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important; 
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: underline !important;
     }
 `
 
 const Dot = styled.div`
-    border-radius: 1000px;
-    width: 6px;
-    height: 6px;
-    background: #000;
+    border-radius: 1000px !important;
+    width: 6px !important;
+    height: 6px !important;
+    background: #000 !important;
 `
 
 const BottomOverflow = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 6px;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    bottom: 6px !important;
+    gap: 10px !important;
 `
 
 const LangOverflow = styled.div`
-    display: flex;
-    gap: 5px;
+    display: flex !important;
+    gap: 5px !important;
 `
 
 const Slider = styled(motion.div)`
-    position: relative;
-    border-radius: 29px;
-    margin: 6px;
-    padding: 4px;
-    width: 238px;
-    height: 58px;
-    box-sizing: border-box;
-    background: rgba(240, 213, 51, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative !important;
+    border-radius: 29px !important;
+    margin: 6px !important;
+    padding: 4px !important;
+    width: 238px !important;
+    height: 58px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 `
 
 const CircleButton = styled(motion.div)`
-    position: absolute;
-    left: 4px;
-    border-radius: 100%;
-    background: #f0d533;
-    width: 50px;
-    height: 50px;
-    cursor: grab;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute !important;
+    left: 4px !important;
+    border-radius: 100% !important;
+    background: #f0d533 !important;
+    width: 50px !important;
+    height: 50px !important;
+    cursor: grab !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 `
 
-
 const SliderConfirmOverflow = styled(motion.div)`
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 46px;
-    transform: translateZ(0);
-    will-change: opacity;
+    position: absolute !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 46px !important;
+    transform: translateZ(0) !important;
+    will-change: opacity !important;
 `
 
 const SliderConfirmText = styled(motion.div)`
-    position: absolute;
-    font-family: "Inter";
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 107%;
+    position: absolute !important;
+    font-family: "Inter" !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    line-height: 107% !important;
     background: linear-gradient(90deg, rgba(240, 212, 51, 0.2) 0%, rgba(240, 213, 51, 0.7) 50%, rgba(240, 213, 51, 0.2) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    animation: slider-text-wave 5s linear infinite;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-size: 200% 100% !important;
+    animation: slider-text-wave 5s linear infinite !important;
 
     @keyframes slider-text-wave {
         0% {
@@ -250,8 +246,8 @@ const SliderConfirmText = styled(motion.div)`
 `
 
 const B = styled.span`
-    color: #000;
-    font-weight: 700;
+    color: #000 !important;
+    font-weight: 700 !important;
 `
 
 const CircleArrowIcon = ({ style }) => (

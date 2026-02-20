@@ -4,15 +4,15 @@ import styled from 'styled-components'
 import { useEffect, useRef, useState, memo } from 'react'
 
 const Content = styled.div`
-    position: absolute;
-    color: #000;
-    font-family: "inter";
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+    position: absolute !important;
+    color: #000 !important;
+    font-family: "inter" !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 10px !important;
 `
 
 const pointOnRoundedRect = (t, w, h, r) => {

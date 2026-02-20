@@ -101,7 +101,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
     const opacitySlider = useTransform(
         x,
         [0, sliderWidth - circleSize],
-        [0.2, 1]
+        [0.1, 1]
     )
 
     const opacityConfirmText = useTransform(
