@@ -14,6 +14,9 @@ const ShadowBody = styled(motion.div)`
     backdrop-filter: blur(30px) !important;
     -webkit-backdrop-filter: blur(30px) !important;
     user-select: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-synthesis: none !important;
 `
 
 const Body = styled(motion.div)`

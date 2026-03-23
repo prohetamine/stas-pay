@@ -25,6 +25,7 @@ const networksAlias = {
   1: 'ethereum',
   10: 'optimism',
   56: 'bsc',
+  97: 'bsctestnet',
   130: 'unichain',
   137: 'polygon',
   143: 'monad',
