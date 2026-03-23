@@ -3,7 +3,7 @@
   "description": "The module for the internal STAS cryptocurrency",
   "author": "Stas Prohetamine",
   "license": "ISC",
-  "version": "0.1.222",
+  "version": "0.1.223",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -23,6 +23,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-use-localstorage": "^3.5.3",
+    "styled-components": "^6.3.12",
     "vite-plugin-css-injected-by-js": "^3.5.2"
   },
   "peerDependencies": {
