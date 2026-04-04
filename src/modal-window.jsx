@@ -230,7 +230,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
                                 </MessageOverflow>
                             </StarsOverflow> 
                             <BottomOverflow>
-                                <Link onTap={() => window.open('https://prohetamine.ru/web3', '_blank')}>prohetamine.ru/web3</Link>
+                                <Link active={'underline'} onTap={() => window.open('https://prohetamine.ru/web3', '_blank')}>prohetamine.ru/web3</Link>
                                 <Dot />
                                 <LangOverflow>
                                     <Link onTap={() => setLang('ru')} active={!isRus ? 'underline' : 'none'}>ru</Link>
