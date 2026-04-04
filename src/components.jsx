@@ -158,13 +158,13 @@ const Link = styled(motion.div)`
     line-height: 145% !important;
     color: #000 !important;
     background: #f0d533 !important;
-    text-decoration: ${props => props.active} !important;
+    text-decoration: underline !important;
     cursor: pointer !important;
     -webkit-tap-highlight-color: transparent !important;
     outline: none !important; 
 
     &:hover {
-        text-decoration: underline !important;
+        text-decoration: none !important;
     }
 `
 
