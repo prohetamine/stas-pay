@@ -138,7 +138,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
                     opacity: 0
                 }}
                 animate={{ 
-                    backdropFilter: 'blur(30px)',
+                    backdropFilter: 'blur(5px)',
                     background: 'rgba(22, 22, 22, 0.90)',
                     opacity: 1
                 }}

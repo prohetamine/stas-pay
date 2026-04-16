@@ -11,8 +11,8 @@ const ShadowBody = styled(motion.div)`
     align-items: center !important;
     justify-content: center !important;
     background: rgba(22, 22, 22, 0.90) !important;
-    backdrop-filter: blur(30px) !important;
-    -webkit-backdrop-filter: blur(30px) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
     user-select: none !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
