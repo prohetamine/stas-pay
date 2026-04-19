@@ -57,7 +57,9 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
 
         if (progress > 0.85) {
             if (!isPayble) {
-                window.open(`https://app.uniswap.org/swap?chain=${chain}&inputCurrency=NATIVE&outputCurrency=${token}`)
+                setTimeout(() => {
+                    window.open(`https://www.sushi.com/${chain}/swap?token0=NATIVE&token1=${token}&swapAmount=`)
+                }, 100)
             }
 
             setConfirm(true)
@@ -266,7 +268,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
                                     {
                                         isPayble 
                                             ? 'Подтвердить'
-                                            : 'Uniswap'
+                                            : 'Sushi Swap'
                                     }
                                 </SliderConfirmText>
                                 <SliderConfirmText 
@@ -284,7 +286,7 @@ const ModalWindow = ({ data: { chainId = null, address = null, commission = 0 },
                                     {
                                         isPayble 
                                             ? 'Confirm'
-                                            : 'Uniswap'
+                                            : 'Sushi Swap'
                                     }
                                 </SliderConfirmText>
                             </SliderConfirmOverflow>

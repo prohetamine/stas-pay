@@ -237,6 +237,7 @@ const SliderConfirmText = styled(motion.div)`
     -webkit-text-fill-color: transparent !important;
     background-size: 200% 100% !important;
     animation: slider-text-wave 5s linear infinite !important;
+    white-space: nowrap !important;
 
     @keyframes slider-text-wave {
         0% {
